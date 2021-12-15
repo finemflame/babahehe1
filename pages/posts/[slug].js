@@ -16,7 +16,7 @@ export default function Post({post}) {
 }
 
 export async function getStaticProps(context) {
-    const res = await fetch('https://btheblog.000webhostapp.com/graphql', {
+    const res = await fetch(process.env.WP_GRAPHQL_EP, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -47,7 +47,7 @@ export async function getStaticProps(context) {
     }
 }
 export async function getStaticPaths() {
-    const res = await fetch('https://btheblog.000webhostapp.com/graphql', {
+    const res = await fetch(process.env.WP_GRAPHQL_EP, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
