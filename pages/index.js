@@ -25,7 +25,7 @@ export default function Homepage({posts, menuItems}) {
   )
 }
 export async function getStaticProps() {
-  const res = await fetch('https://btheblog.000webhostapp.com/graphql', {
+  const res = await fetch(process.env.WP_GRAPHQL_EP, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
